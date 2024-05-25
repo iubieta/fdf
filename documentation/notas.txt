@@ -1,0 +1,63 @@
+--PROYECTO FDF--
+
+Libreria grafica: MiniLibX
+
+Entrega:
+  
+  - Nombre del programa: fdf
+  - Archivos a entregar: Makefile, *.h, *.c
+  - Normas Makefile: NAME, all, clean, fclean, re
+
+  - Argumentos introducidos al programa: Archivo en formato .fdf
+
+  - Funciones autorizadas:
+
+  	- Gestion de archivos:
+		- open, close, read, write
+
+	- Gestion de memoria:
+		- malloc, free
+
+	- Gestion de errores
+		-perror, strerror
+
+	- Control del programa 
+		- exit
+
+	- Todas las funciones de la librería math 
+		(-lm opción del compilador, man 3 math)
+
+	- Todas las funciones de la librería MiniLibX
+
+	- ft_printf y libft
+  
+Descripcion: Creación de un simple modelo de estructura alámbrica de un paisaje.
+
+	Este proyecto se trata de la creación de un simple modelo de estructura alámbrica
+	con una representación en 3D de un paisaje uniendo varios puntos (x, y, z) gracias a
+	los segmentos de lineas (edge).
+
+Requisitos:
+
+  - Debes utilizar la MiniLibX.
+  - Tienes que entregar un Makefile que compilará tus archivos sin hacer relink.
+  - El uso de variables globales están prohibidas.
+
+Explicacion detallada del proyecto:
+
+	Tu programa tiene que representar el modelo en una proyección isométrica.
+	Las coordenadas del paisaje están almacenadas en un archivo .fdf pasado como parámetro
+	a tu programa. 
+	En un archivo .fdf cada número representa un punto en el espacio:
+		• La posición horizontal corresponde a su eje.
+		• La posición vertical corresponde a su eje de coordenada Y.
+		• El valor corresponde a su altitud.
+
+	Aspecto grafico:
+	• Tu programa tiene que mostrar la imagen en una ventana.
+	• La gestión de su ventana debe permanecer fluida (cambiando de ventanas, minimizando, etc).
+	• Al presionar ESC se debe cerrar la ventana y terminar el programa de forma limpia.
+	• Al hacer click en la x en el marco de la ventana se debe cerrar la ventana y terminar
+	el programa de forma limpia.
+	• El uso de las imágenes de la MiniLibX es obligatoria
+
