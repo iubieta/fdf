@@ -1,0 +1,11 @@
+-- TAREAS FDF--
+
+Entender e implementar MiniLibX:
+
+    
+
+Gestion de argumentos (Parsing):
+
+    - Control de errores
+    - Almacenamiento de informacion del archivo .fdf
+
