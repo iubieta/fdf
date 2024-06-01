@@ -1,2 +1,24 @@
 -- NOTAS MINILIBX --
 
+Requisitos ubuntu:
+
+Libreria:   https://github.com/42Paris/minilibx-linux
+
+Dependencias: xorg libxext-dev zlib1g-dev libbsd-dev
+
+Reglas de compilacion para el Makefile:
+
+    %.o: %.c
+        $(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
+
+    $(NAME): $(OBJ)
+	$(CC) $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+
+Uso de la libreria en C:
+
+    Header:             #include <wlx.h>
+    Inicializacion:     void *mlx = mlx_init();
+    Crear una ventana:  void *mlx_win = mlx_new_window(mlx, width, height, window_title);
+    Renderizar ventana:	mlx_loop(mlx);
+
+	
