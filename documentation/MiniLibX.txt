@@ -2,9 +2,13 @@
 
 Requisitos ubuntu:
 
-Libreria:   https://github.com/42Paris/minilibx-linux
+Libreria:   	https://github.com/42Paris/minilibx-linux
+
+Referencias:	https://harm-smits.github.io/42docs/libs/minilibx.html
 
 Dependencias: xorg libxext-dev zlib1g-dev libbsd-dev
+
+---------------------------------------------------------------------------------------------------
 
 Reglas de compilacion para el Makefile:
 
@@ -14,6 +18,8 @@ Reglas de compilacion para el Makefile:
     $(NAME): $(OBJ)
 	$(CC) $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
+---------------------------------------------------------------------------------------------------
+
 Uso de la libreria en C:
 
     Header:             #include <wlx.h>
@@ -21,4 +27,53 @@ Uso de la libreria en C:
     Crear una ventana:  void *mlx_win = mlx_new_window(mlx, width, height, window_title);
     Renderizar ventana:	mlx_loop(mlx);
 
+	Crear y rellenar una imagen:
+	Para rellenar una imagen hay que ir escribiendo pixel a pixel los valores correspondientes.
+	Para ello existe la funcion 'mlx_pixel_put' pero esta intenta modificar directamente el pixel
+	de la ventana, renderizandola cada vez que lo hace, lo cual es muy ineficiente.
+	Una mejor opcion es pre-dibujar una imagen y luego renderizarla en la ventana.
+
+	Propiedades de una imagen (Estructura):
+
+		typedef struct  s_img {
+			void    *img;           // Puntero a la imagen
+			char    *addr;          // Dirección de memoria de los datos de la imagen
+			int     bits_per_pixel; // Bits por píxel (profundidad de color)
+			int     line_length;    // Longitud de cada línea de la imagen en bytes
+			int     endian;         // Orden de los bytes (endianess)
+		}               t_img;
+
+		*NOTA: line_length != numero de pixels por linea. 
+		line_length == cantidad de bytes usados para almacenar una línea completa, incluyendo 
+		cualquier padding.
+
+	Para modificar los pixels sobre la memoria directamente debemos calcular el offset.
+	Offset = desplazamiento en la memoria del pixel a modificar respecto a su posicion en la 
+	ventana
+
+	Calcular el offset:
+		
+		offset = (y * line_length) + (x * (bits_per_pixel / 8))
+
 	
+	Funcion para dibujar un pixel:
+	
+	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+	{
+		char	*dst;
+
+		dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+		*(unsigned int*)dst = color;
+	}
+	
+	*NOTA: al igual que con la funcion original de 'pixel_put' si usamos esta funcion sobre la 
+	imagen que se esta mostrando en la ventana vamos a estar modificando la misma continuamente.
+	Una mejor opcion es crear varias imagenes y modificar una que no este siendo renderizada y una 
+	vez este completa renderizarla
+
+	Renderizar o 'pushear' imagenes completas a una ventana:
+
+		mlx_put_image_to_window(mlx_ptr, win_ptr, img_ptr, x, y);
+
+
+---------------------------------------------------------------------------------------------------
