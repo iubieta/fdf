@@ -55,7 +55,7 @@ Explicacion detallada del proyecto:
 
 	Aspecto grafico:
 		• Tu programa tiene que mostrar la imagen en una ventana.
-		• La gestión de su ventana debe permanecer fluida (cambiando de ventanas, minimizando, etc).
+		• La gestión de su ventana debe permanecer fluida (cambiando de ventanas, minimizando, etc)
 		• Al presionar ESC se debe cerrar la ventana y terminar el programa de forma limpia.
 		• Al hacer click en la x en el marco de la ventana se debe cerrar la ventana y terminar
 		el programa de forma limpia.
@@ -74,3 +74,9 @@ Objetivos:
 Bibliografia:
 	
 	- https://medium.com/@alaricsaltzman913/fdf-42-a-detailed-walkthrough-7184cca317fc
+
+---------------------------------------------------------------------------------------------------
+
+1 - Gestion de errores y lectura de archivo .fdf
+
+	
