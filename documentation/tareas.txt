@@ -2,10 +2,11 @@
 
 Entender e implementar MiniLibX:
 
-    
+    - Colores
+    - 
 
 Gestion de argumentos (Parsing):
 
     - Control de errores
-    - Almacenamiento de informacion del archivo .fdf
+    - Lectura de archivo .fdf
 

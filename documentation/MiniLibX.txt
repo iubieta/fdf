@@ -67,7 +67,7 @@ Uso de la libreria en C:
 	}
 	
 	*NOTA: al igual que con la funcion original de 'pixel_put' si usamos esta funcion sobre la 
-	imagen que se esta mostrando en la ventana vamos a estar modificando la misma continuamente.
+	imagen que se esta mostrando en la ventana Funcion para dibujar un pixel:vamos a estar modificando la misma continuamente.
 	Una mejor opcion es crear varias imagenes y modificar una que no este siendo renderizada y una 
 	vez este completa renderizarla
 
