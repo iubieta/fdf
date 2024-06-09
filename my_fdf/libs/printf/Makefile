@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+         #
+#    By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 19:10:42 by iubieta-          #+#    #+#              #
-#    Updated: 2023/11/02 15:39:48 by iubieta-         ###   ########.fr        #
+#    Updated: 2024/06/09 21:13:32 by iubieta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ AR = ar csr
 RM = rm -rf
 
 all : ${NAME}
+	@echo "PRINTF COMPILED"
 
 ${NAME} : ${OBJS}
 	${AR} ${NAME} $^
