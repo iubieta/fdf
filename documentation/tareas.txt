@@ -70,8 +70,9 @@ Seguir con:
 
     - Transformación isometrica:
         - Modificacion de las coordenas / cambio de vista
+            - Formatear funciones de rotacion, crear funcion rotacion isometrica.
         - Conversion 3D a 2D
 
     - Visualización grafica
-    
+
 
