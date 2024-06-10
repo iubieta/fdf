@@ -26,7 +26,12 @@ typedef struct s_map {
 t_point *new_point(int x, int y, int z);
 void    add_point(t_map *map, t_point *new_point);
 void    free_points(t_point *head);
-void print_2d_matrix(t_map *map);
+void    print_2d_matrix(t_map *map);
+
+t_point rot_x(t_point p, float angle);
+t_point rot_y(t_point p, float angle);
+t_point rot_z(t_point p, float angle);
+t_point isometric_rot(t_point);
 
 
 void    read_fdf(int fd, t_map *map);
