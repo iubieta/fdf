@@ -74,7 +74,7 @@ Objetivos:
 Bibliografia:
 	
 	- https://medium.com/@alaricsaltzman913/fdf-42-a-detailed-walkthrough-7184cca317fc
-
+	- https://es.stackoverflow.com/questions/492011/transformar-coordenadas-3d-a-posici%C3%B3n-2d-isom%C3%A9trica
 ---------------------------------------------------------------------------------------------------
 
 1 - Gestion de errores y lectura de archivo .fdf

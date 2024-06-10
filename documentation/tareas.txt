@@ -5,20 +5,20 @@ Planificacion:
     ### **Tareas Iniciales**
     1. **Configuración del Entorno**
     - Instalar MiniLibX. (HECHO)
-    - Configurar el Makefile.
+    - Configurar el Makefile. (HECHO)
 
     2. **Lectura del Archivo**
-    - Implementar la función para abrir y leer el archivo `.fdf`.
-    - Almacenar los datos en una estructura adecuada (matriz 2D).
+    - Implementar la función para abrir y leer el archivo `.fdf`. (HECHO)
+    - Almacenar los datos en una estructura adecuada (structura de puntos 3D). (HECHO)
 
     ### **Almacenamiento y Procesamiento de Datos**
     3. **Definir Estructuras de Datos**
-    - Crear estructuras para almacenar los puntos (coordenadas x, y, z).
+    - Crear estructuras para almacenar los puntos (coordenadas x, y, z). (HECHO)
 
     4. **Analizar el Archivo**
-    - Leer el archivo línea por línea.
-    - Parsear cada línea para extraer las alturas.
-    - Almacenar las alturas en la estructura definida.
+    - Leer el archivo línea por línea. (HECHO)
+    - Parsear cada línea para extraer las alturas. (HECHO)
+    - Almacenar las alturas en la estructura definida. (HECHO)
 
     ### **Proyección y Transformación**
     5. **Proyección Isométrica**
@@ -68,7 +68,10 @@ Planificacion:
 
 Seguir con:
 
-    - Lectura archivo fdf
-        - Abrir y leer archivo
-        - Guardar coordenadas en un array de puntos
+    - Transformación isometrica:
+        - Modificacion de las coordenas / cambio de vista
+        - Conversion 3D a 2D
+
+    - Visualización grafica
+    
 

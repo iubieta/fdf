@@ -6,13 +6,13 @@
 #    By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/09 20:27:36 by iubieta           #+#    #+#              #
-#    Updated: 2024/06/10 11:26:50 by iubieta          ###   ########.fr        #
+#    Updated: 2024/06/10 17:24:33 by iubieta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -lm
 INCLUDES = -I./include -I./libs/libft -I./libs/printf -I./libs/minilibx-linux
 LIBS = -L./libs/libft -lft -L./libs/printf -lftprintf -L./libs/minilibx-linux -lmlx -lXext -lX11 -lm 
 MAKEFLAGS = --no-print-directory

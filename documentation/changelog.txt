@@ -2,3 +2,4 @@ Lunes 10/06:
 	
 	- Makefile y estructura de carpetas hecha
 	- Read fdf escrito y probado
+	- Empezado a escribir funciones para rotacion isometrica (isometric.c).

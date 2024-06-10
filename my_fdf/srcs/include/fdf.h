@@ -3,6 +3,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <limits.h>
+#include <math.h>
 
 # include "get_next_line.h"
 # include "../../libs/libft/libft.h"
