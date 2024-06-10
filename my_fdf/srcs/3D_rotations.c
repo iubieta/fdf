@@ -6,7 +6,7 @@
 /*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 17:25:52 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/10 18:58:41 by iubieta          ###   ########.fr       */
+/*   Updated: 2024/06/10 19:27:33 by iubieta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,14 @@ t_point isometric_rot(t_point point)
     new_point = rot_x(point, 30);
     new_point = rot_y(new_point, 30);
     return (new_point);
+}
+
+t_point point_projection(t_point point_3d, float fov = 1.0, float distance = 100.0)
+{
+    t_point point_2d;
+    float   factor;
+    
+    point_2d.x = point_3d.x * factor;
+    point_2d.y = point_3d.y * factor;
+    return (point_2d);
 }
