@@ -6,7 +6,7 @@
 /*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:33:19 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/10 13:37:08 by iubieta          ###   ########.fr       */
+/*   Updated: 2024/06/10 15:44:24 by iubieta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,31 +18,25 @@ void	read_fdf(int fd, t_map *map)
 	int         x;
 	int         y;
 	int         z;
-	char        *line;
 	char        *str_point;
 
 	x = 0;
 	y = 0;
-	z = 0;
-	line = get_next_line(fd);
-	str_point = line;
-	while (line != NULL)
+	str_point = get_next_line(fd);
+	while (str_point != NULL)
 	{
 		while (str_point != NULL)
 		{
-			printf("%i", z);
 			z = ft_atoi(str_point);
 			point = new_point(x++, y, z);
 			add_point(map, point);
 			str_point = next_word(str_point);
-			printf(" ");
 		}
-		line = get_next_line(fd);
-		str_point = line;
+		map->cols = x;
 		y++;
-		printf("\n");
+		x = 0;
+		str_point = get_next_line(fd);
 	}
-	map->cols = x;
 	map->rows = y;
 }
 

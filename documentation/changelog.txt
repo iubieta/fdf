@@ -1,4 +1,4 @@
 Lunes 10/06:
 	
 	- Makefile y estructura de carpetas hecha
-	- Read fdf empezado y en pruebas
+	- Read fdf escrito y probado
