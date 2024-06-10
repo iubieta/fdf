@@ -3,14 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:30:09 by iubieta-          #+#    #+#             */
-/*   Updated: 2024/02/10 14:50:18 by iubieta-         ###   ########.fr       */
+/*   Updated: 2024/06/10 12:51:23 by iubieta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "include/get_next_line.h"
+
+char	*ft_join_gnl(char *s1, char *s2)
+{
+	char	*final_str;
+	int		i;
+	int		j;
+
+	final_str = NULL;
+	if (!s1 && !s2)
+		return (NULL);
+	else if (s1 && s2)
+	{
+		final_str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+		if (!final_str)
+			return (NULL);
+		i = 0;
+		while (s1 && s1[i])
+		{
+			final_str[i] = s1[i];
+			i++;
+		}
+		final_str[i] = '\0';
+		j = 0;
+		while (s2 && s2[j] != '\0')
+			final_str[i++] = s2[j++];
+		final_str[i] = '\0';
+	}
+	return (free(s1), s1 = NULL, final_str);
+}
 
 char	*ft_read(int fd, char *text)
 {
@@ -26,7 +55,7 @@ char	*ft_read(int fd, char *text)
 		read_bytes = read(fd, buffer, BUFFER_SIZE);
 		buffer[read_bytes] = '\0';
 		if (read_bytes >= 0)
-			text = ft_join(text, buffer);
+			text = ft_join_gnl(text, buffer);
 		else
 			return (free (buffer), buffer = NULL, NULL);
 	}

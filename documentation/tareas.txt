@@ -68,7 +68,6 @@ Planificacion:
 
 Seguir con:
 
-    - Makefile
     - Lectura archivo fdf
         - Abrir y leer archivo
         - Guardar coordenadas en un array de puntos

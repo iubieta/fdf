@@ -6,7 +6,7 @@
 #    By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/09 20:27:36 by iubieta           #+#    #+#              #
-#    Updated: 2024/06/09 21:11:20 by iubieta          ###   ########.fr        #
+#    Updated: 2024/06/10 11:26:50 by iubieta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,9 +35,15 @@ $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	@mkdir -p $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-libs:
-	@$(MAKE) -C ./libs/printf
+libs: libft printf minilibx
+
+libft:
 	@$(MAKE) -C ./libs/libft
+
+printf:
+	@$(MAKE) -C ./libs/printf
+
+minilibx:
 	@$(MAKE) -C ./libs/minilibx-linux
 
 clean:

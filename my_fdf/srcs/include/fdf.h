@@ -9,8 +9,24 @@
 # include "../../libs/minilibx-linux/mlx.h"
 # include "../../libs/printf/ft_printf.h"
 
-typedef struct  s_3Dmap {
+typedef struct s_point {
     int x;
     int y;
     int z;
-}               t_3Dmap;
+    struct s_point *next;
+} t_point;
+
+typedef struct s_map {
+    t_point *head;
+    int rows;
+    int cols;
+} t_map;
+
+t_point *new_point(int x, int y, int z);
+void    add_point(t_map *map, t_point *new_point);
+void    free_points(t_point *head);
+void print_2d_matrix(t_map *map);
+
+
+void    read_fdf(int fd, t_map *map);
+char    *next_word(char *str);

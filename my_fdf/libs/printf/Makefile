@@ -6,7 +6,7 @@
 #    By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 19:10:42 by iubieta-          #+#    #+#              #
-#    Updated: 2024/06/09 21:13:32 by iubieta          ###   ########.fr        #
+#    Updated: 2024/06/10 11:18:07 by iubieta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,17 +18,17 @@ CFLAGS = -Wall -Werror -Wextra
 AR = ar csr
 RM = rm -rf
 
-all : ${NAME}
+all : $(NAME)
 	@echo "PRINTF COMPILED"
 
-${NAME} : ${OBJS}
-	${AR} ${NAME} $^
+$(NAME) : $(OBJS)
+	$(AR) $(NAME) $^
 
 clean :
-	${RM} ${OBJS}
+	$(RM) $(OBJS)
 
 fclean : clean
-	${RM} ${NAME}
+	$(RM) $(NAME)
 
 re : fclean all
 
