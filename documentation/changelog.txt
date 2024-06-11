@@ -6,6 +6,5 @@ Lunes 10/06:
 
 Martes 11/06:
 
-	- Revisando y modificando funciones de rotacion
-	- Main para visualizar mapa como pixeles escrito
-	- Seguir haciendo pruebas y revisando rotaciones
+	- Funciones de rotacion 3D no funcionales -> dejarlas para mas adelante
+	- impresion 2D del mapa
