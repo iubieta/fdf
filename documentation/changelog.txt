@@ -3,4 +3,9 @@ Lunes 10/06:
 	- Makefile y estructura de carpetas hecha
 	- Read fdf escrito y probado
 	- Funciones de rotacion 3D escritas
-	-
+
+Martes 11/06:
+
+	- Revisando y modificando funciones de rotacion
+	- Main para visualizar mapa como pixeles escrito
+	- Seguir haciendo pruebas y revisando rotaciones

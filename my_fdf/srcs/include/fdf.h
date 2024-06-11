@@ -31,8 +31,21 @@ void    print_2d_matrix(t_map *map);
 t_point rot_x(t_point p, float angle);
 t_point rot_y(t_point p, float angle);
 t_point rot_z(t_point p, float angle);
+void   map_rotation(t_map *map, t_point (*func)(t_point, float), float angle);
 t_point isometric_rot(t_point);
-
+t_point point_projection(t_point point_3d, float fov, float distance);
 
 void    read_fdf(int fd, t_map *map);
 char    *next_word(char *str);
+
+typedef struct s_data {
+	void    *img;
+	char    *addr;
+	int     bits_per_pixel;
+	int     line_length;
+	int     endian;
+}               t_data;
+
+void    my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int     close_window(void *param);
+

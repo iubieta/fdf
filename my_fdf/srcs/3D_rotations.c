@@ -6,7 +6,7 @@
 /*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 17:25:52 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/10 19:27:33 by iubieta          ###   ########.fr       */
+/*   Updated: 2024/06/11 10:47:51 by iubieta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,20 @@ t_point rot_z(t_point p, float angle) {
     return (new_point);
 }
 
+void   map_rotation(t_map *map, t_point (*func)(t_point, float), float angle){
+    t_point *current;
+    t_point *head;
+    
+    current = map->head;
+    head = current;
+    while (current)
+    {
+        func(*current, angle);
+        current = current->next;
+    }
+    map->head = head;
+}
+
 t_point isometric_rot(t_point point)
 {
     t_point new_point;
@@ -51,11 +65,12 @@ t_point isometric_rot(t_point point)
     return (new_point);
 }
 
-t_point point_projection(t_point point_3d, float fov = 1.0, float distance = 100.0)
+t_point point_projection(t_point point_3d, float fov, float distance)
 {
     t_point point_2d;
     float   factor;
     
+    factor = fov / (point_3d.z + distance);
     point_2d.x = point_3d.x * factor;
     point_2d.y = point_3d.y * factor;
     return (point_2d);

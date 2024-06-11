@@ -71,8 +71,10 @@ Seguir con:
     - Transformación isometrica:
         - Modificacion de las coordenas / cambio de vista
             - Formatear funciones de rotacion, crear funcion rotacion isometrica.
+            - Revisar funcion de rotacion completa de mapa.
         - Conversion 3D a 2D
 
     - Visualización grafica
-
+        - Organizar funciones necesarias para la visualizacion de imagenes
+        - Arupar funciones para tareas mayores. Actualizar imagen, limpiar ventana, etc.
 
