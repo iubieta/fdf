@@ -7,7 +7,7 @@
 
 # include "get_next_line.h"
 # include "../../libs/libft/libft.h"
-# include "../../libs/minilibx-linux/mlx.h"
+# include "../../libs/minilibx/mlx.h"
 # include "../../libs/printf/ft_printf.h"
 
 typedef struct  s_point {

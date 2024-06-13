@@ -13,8 +13,8 @@
 NAME = fdf
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -lm
-INCLUDES = -I./include -I./libs/libft -I./libs/printf -I./libs/minilibx-linux
-LIBS = -L./libs/libft -lft -L./libs/printf -lftprintf -L./libs/minilibx-linux -lmlx -lXext -lX11 -lm 
+INCLUDES = -I./include -I./libs/libft -I./libs/printf -I./libs/minilibx
+LIBS = -L./libs/libft -lft -L./libs/printf -lftprintf -L./libs/minilibx -lmlx -lXext -lX11 -lm 
 MAKEFLAGS = --no-print-directory
 
 SRCS_DIR = ./srcs
@@ -44,12 +44,12 @@ printf:
 	@$(MAKE) -C ./libs/printf
 
 minilibx:
-	@$(MAKE) -C ./libs/minilibx-linux
+	@$(MAKE) -C ./libs/minilibx
 
 clean:
 	@$(MAKE) -C ./libs/printf fclean
 	@$(MAKE) -C ./libs/libft fclean
-	@$(MAKE) -C ./libs/minilibx-linux clean
+	@$(MAKE) -C ./libs/minilibx clean
 	@rm -rf $(OBJS_DIR)
 
 fclean: clean
