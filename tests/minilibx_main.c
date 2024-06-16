@@ -1,4 +1,4 @@
-#include "../minilibx-linux/mlx.h"
+#include "../my_fdf/libs/minilibx/mlx.h"
 #include <stdlib.h>
 #include <stdio.h>
 

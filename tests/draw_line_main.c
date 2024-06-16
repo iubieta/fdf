@@ -2,13 +2,6 @@
 
 int main()
 {
-	//t_map *map = malloc(sizeof(t_map));
-	//map->head = NULL;
-
-	//fdf_read("basictest.fdf", map);
-	//print_2d_matrix(map);
-	printf("\n");
-
 	t_gui *gui = malloc(sizeof(t_gui));
 	gui_init(gui, 1920, 1080);
 
@@ -24,7 +17,4 @@ int main()
     draw_line(gui, p0, p1);
 	mlx_put_image_to_window(gui->mlx, gui->window, gui->img.ptr, 0, 0);
 	gui_loop(gui);
-	
-	//free_points(map->head);
-	//free(map);
 }

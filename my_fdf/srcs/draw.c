@@ -6,7 +6,7 @@
 /*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:29:48 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/11 22:07:46 by iubieta          ###   ########.fr       */
+/*   Updated: 2024/06/16 20:56:40 by iubieta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ typedef	struct 	s_line {
 	int error;
 }				t_line;
 
+void	init_line(t_line *line, t_point p0, t_point p1);
+int	ft_abs(int x);
+int	ft_sign(int x);
 
 void	draw_point(t_gui *gui, t_point p, int color)
 {
@@ -27,8 +30,8 @@ void	draw_point(t_gui *gui, t_point p, int color)
 
 	if (p.x >= 0 && p.x < gui->width && p.y >= 0 && p.y < gui->height)
 	{
-		i = (p.x * gui->img.bits_per_pixel / 8) + (p.y * gui->img.line_length);
-		gui->img.addr[++i] = color & 0xFF;
+		i = (p.x * gui->img.bpp / 8) + (p.y * gui->img.line_len);
+		gui->img.addr[i] = color & 0xFF;
         gui->img.addr[++i] = (color >> 8) & 0xFF;
         gui->img.addr[++i] = (color >> 16) & 0xFF;
 	}
@@ -38,7 +41,7 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 {
 	char	*dst;
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	dst = data->addr + (y * data->line_len + x * (data->bpp / 8));
 	*(unsigned int*)dst = color;
 }
 
@@ -50,6 +53,9 @@ void	draw_line(t_gui *gui, t_point p0, t_point p1)
 	init_line(&line, p0, p1);;
 	while (p0.x != p1.x || p0.y != p1.y)
 	{
+		printf("(%i,%i)\n", p0.x, p0.y);
+		printf("Next: dx=%i dy=%i mx=%i my=%i error=%i\n",
+				line.dif_x, line.dif_y, line.move_x, line.move_y, line.error);
 		draw_point(gui, p0, 0xFFFFFF);
 		error_double = line.error * 2;
 		if (error_double > -line.dif_y)
@@ -63,6 +69,7 @@ void	draw_line(t_gui *gui, t_point p0, t_point p1)
 			p0.y += line.move_y;
 		}
 	}
+	printf("(%i,%i)\n", p0.x, p0.y);
 	draw_point(gui, p0, 0xFFFFFF);
 }
 
@@ -70,8 +77,24 @@ void	init_line(t_line *line, t_point p0, t_point p1)
 {
 	line->dif_x = ft_abs(p1.x - p0.x);
 	line->dif_y = ft_abs(p1.y - p0.y);
-	line->move_x = p1.x - p0.x;
-	line->move_y = p1.y - p0.y;
+	line->move_x = ft_sign(p1.x - p0.x);
+	line->move_y = ft_sign(p1.y - p0.y);
 	line->error = line->dif_x - line->dif_y;
 }
+int	ft_abs(int x)
+{
+	if (x == 0)
+		return (0);
+	if (x < 0)
+		return (-x);
+	return (x);
+}
 
+int	ft_sign(int x)
+{
+	if (x == 0)
+		return (0);
+	if (x < 0)
+		return (-1);
+	return (1);
+}

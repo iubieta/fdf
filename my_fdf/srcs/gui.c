@@ -6,21 +6,40 @@
 /*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 09:58:39 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/11 20:08:29 by iubieta          ###   ########.fr       */
+/*   Updated: 2024/06/16 19:16:34 by iubieta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/fdf.h"
 
-void gui_init(t_gui *gui)
+void gui_init(t_gui *gui, int width, int height)
 {
 	gui->mlx = mlx_init();
-	gui->width = 500;
-	gui->height = 500;
+	if (!gui->mlx)
+	{
+		perror("Failed to init mlx");
+		exit(EXIT_FAILURE);
+	}
+	gui->width = width;
+	gui->height = height;
 	gui->window = mlx_new_window(gui->mlx, gui->width, gui->height, "FdF");
-	gui->img.img = mlx_new_image(gui->mlx, gui->width, gui->height);
-	gui->img.addr = mlx_get_data_addr(gui->img.img, &gui->img.bits_per_pixel, &gui->img.line_length,
-								&gui->img.endian);
+	if (!gui->window)
+	{
+		perror("Failed to init window");
+		exit(EXIT_FAILURE);
+	}
+	gui->img.ptr = mlx_new_image(gui->mlx, gui->width, gui->height);
+	if (!gui->img.ptr)
+	{
+		perror("Failed to init image");
+		exit(EXIT_FAILURE);
+	}
+	gui->img.addr = mlx_get_data_addr(gui->img.ptr, &gui->img.bpp, &gui->img.line_len, &gui->img.endian);
+	if (!gui->img.addr)
+	{
+		perror("Failed to init img address");
+		exit(EXIT_FAILURE);
+	}
 }
 
 void gui_loop(t_gui *gui)

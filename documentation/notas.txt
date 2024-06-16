@@ -95,8 +95,8 @@ Bibliografia:
 				1. **Inicialización**:
 				- Calcular la diferencia en x (`dx`) y en y (`dy`).
 				- Determinar la dirección de incremento dependiendo de la posicion relativa de los puntos.
-					- x1 - x0 > 0 --> x crece	||	x1 - x0 < 0 --> x decrece	(sx = desplazamiento en x)
-					- y1 - y0 > 0 --> y crece	||	y1 - y0 < 0 --> y decrece	(sy = desplazamiento en y)
+					- x1 - x0 > 0 --> x crece	||	x1 - x0 < 0 --> x decrece	(sx = desplazamiento en x = signo de la resta)
+					- y1 - y0 > 0 --> y crece	||	y1 - y0 < 0 --> y decrece	(sy = desplazamiento en y = signo de la resta)
 				- Inicializar el error (`err`) como la diferencia entre `dx` y `dy`. (cual crece mas rapido; x o y)
 
 				2. **Dibujo de la Línea**:
@@ -111,8 +111,8 @@ Bibliografia:
 				1. Inicializar:
 				- dx = |x1 - x0|
 				- dy = |y1 - y0|
-				- sx = x1 - x0
-				- sy = y1 - y0 
+				- sx = signo(x1 - x0)
+				- sy = signo(y1 - y0)
 				- err = dx - dy
 
 				2. Mientras (x0 != x1 OR y0 != y1):

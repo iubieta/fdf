@@ -8,3 +8,9 @@ Martes 11/06:
 
 	- Funciones de rotacion 3D no funcionales -> dejarlas para mas adelante
 	- impresion 2D del mapa
+
+Domingo 16/06:
+
+	- Rehechas estructuras.
+	- GUI funcionando: draw_point probado, draw_line probado.
+	- Volviendo a hacer funciones para guardar mapa etc.
