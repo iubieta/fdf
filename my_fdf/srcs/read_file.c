@@ -84,24 +84,3 @@ void	fdf_save_array(char *file, t_map *map)
 		y++;
 	}
 }
-
-char	*next_word(char* str) 
-{
-	if (str == NULL)
-	{
-		return (NULL);
-	}
-	while (*str != ' ' && *str != '\0')
-	{
-		str++;
-	}
-	while (*str == ' ')
-	{
-		str++;
-	}
-	if (*str == '\0')
-	{
-		return (NULL);
-	}
-	return (str);
-}
