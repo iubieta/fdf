@@ -15,10 +15,10 @@
 t_point *new_point(int x, int y, int z)
 {
 	t_point *point;
-	point = malloc(sizeof(t_point));
+	point = malloc(t_point);
 	if (!point) {
-		perror("Failed to malloc point");
-		return NULL;
+		perror("Error: malloc for point failed");
+		exit(EXIT_FAILURE);
 	}
 	point->x = x;
 	point->y = y;
@@ -27,19 +27,42 @@ t_point *new_point(int x, int y, int z)
 	return (point);
 }
 
-t_map *init_map(void)
+t_map *new_map(int width, int height)
 {
-    t_map *map;
+    t_map	*map;
+	int		i;
 
     map = (t_map *)malloc(sizeof(t_map));
     if (!map)
     {
         perror("Error: malloc for map failed");
-        exit(EXIT_FAILURE);
+        
     }
-	map->array = NULL;
-	map->width = 0;
-	map->height = 0;
+	map->width = width;
+	map->height = height;
+	init_map_array(map);
     return (map);
 }
 
+void	init_map_array(t_map *map)
+{
+	int i;
+
+	map->array = (t_point**)malloc(sizeof(t_point *) * map->height);
+	if (!map->array)
+	{
+        perror("Error: malloc for map array failed");
+        exit(EXIT_FAILURE);
+    }
+	i = 0;
+	while (i < map->height)
+	{
+		map->array[i] = (t_point *)malloc(sizeof(t_point) * map->width);
+		if (map->array[i])
+		{
+			perror("Error: malloc for map array row failed");
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
+}

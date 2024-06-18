@@ -18,9 +18,9 @@ typedef struct  s_point {
 }               t_point;
 
 typedef struct  s_map {
-    int **array;
-    int width;
-    int height;
+    t_point **array;
+    int     width;
+    int     height;
 }               t_map;
 
 typedef struct  s_img {

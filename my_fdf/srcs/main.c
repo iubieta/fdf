@@ -10,15 +10,15 @@ int main()
 	printf("\n");
 
 	t_gui *gui = malloc(sizeof(t_gui));
-	gui_init(gui, 1920, 1080);
+	gui_init(gui, 500, 500);
 
 	t_point	p0;
-	p0.x = 1920/2;
-	p0.y = 1080/2;
+	p0.x = 500/2;
+	p0.y = 500/2;
 	p0.z = 0;
 	t_point	p1;
-	p1.x = 0;
-	p1.y = 1080/2;
+	p1.x = 25;
+	p1.y = 233;
 	p1.z = 0;
 
     draw_line(gui, p0, p1);
