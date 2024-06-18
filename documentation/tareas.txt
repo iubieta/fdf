@@ -27,11 +27,11 @@ Planificacion:
 
     ### **Visualización Gráfica**
     6. **Inicialización de la Ventana**
-    - Usar MiniLibX para crear una ventana.
+    - Usar MiniLibX para crear una ventana. (HECHO)
 
     7. **Dibujo de Puntos y Líneas**
-    - Implementar una función para dibujar puntos.
-    - Implementar una función para dibujar líneas (algoritmo de Bresenham).
+    - Implementar una función para dibujar puntos. (HECHO)
+    - Implementar una función para dibujar líneas (algoritmo de Bresenham). (HECHO)
 
     8. **Dibujo del Mapa Completo**
     - Dibujar todas las líneas entre puntos adyacentes.
@@ -68,13 +68,7 @@ Planificacion:
 
 Seguir con:
 
-    - Transformación isometrica:
-        - Modificacion de las coordenas / cambio de vista
-            - Formatear funciones de rotacion, crear funcion rotacion isometrica.
-            - Revisar funcion de rotacion completa de mapa.
-        - Conversion 3D a 2D
-
-    - Visualización grafica
-        - Organizar funciones necesarias para la visualizacion de imagenes
-        - Arupar funciones para tareas mayores. Actualizar imagen, limpiar ventana, etc.
+    - Probar lectura de fdf
+    - Escribir impresion del mapa en pantalla
+    - Escribir funciones free para mapa y puntos.
 

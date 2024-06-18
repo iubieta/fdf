@@ -14,3 +14,7 @@ Domingo 16/06:
 	- Rehechas estructuras.
 	- GUI funcionando: draw_point probado, draw_line probado.
 	- Volviendo a hacer funciones para guardar mapa etc.
+
+Martes 18/06:
+
+	- Escritas funciones para leer archivo fdf y guardarlo en un mapa.
