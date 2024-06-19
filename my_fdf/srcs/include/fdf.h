@@ -47,6 +47,8 @@ void	draw_point(t_gui *gui, t_point p, int color);
 void	draw_line(t_gui *gui, t_point p0, t_point p1);
 
 t_point *new_point(int x, int y, int z);
+t_map   *new_map(int width, int height);
+
 void    add_point(t_map *map, t_point *new_point);
 void    free_points(t_point *head);
 void    print_2d_matrix(t_map *map);
@@ -59,11 +61,9 @@ void    map_translation(t_map *map, char axis, float distance);
 t_point isometric_rot(t_point);
 t_point point_projection(t_point point_3d, float fov, float distance);
 
-/* int     fdf_read(char *file, t_map *map);
-void    fdf_save_data(int fd, t_map *map);
-char    *next_word(char *str);
- */
+t_map	*fdf_load_map(char *file);
 
+char	*next_word(char* str);
 
-
-
+//DEBUG
+void print_z_values(t_map *map);

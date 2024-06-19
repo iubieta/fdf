@@ -68,7 +68,9 @@ Planificacion:
 
 Seguir con:
 
-    - Probar lectura de fdf
-    - Escribir impresion del mapa en pantalla
     - Escribir funciones free para mapa y puntos.
+    - Escribir impresion del mapa en pantalla
+        - Crear estructura de camara.
+        - Funcion para proyectar un punto en 2D.
+        - Funcion para proyectar todo el mapa.
 

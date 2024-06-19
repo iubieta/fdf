@@ -18,3 +18,7 @@ Domingo 16/06:
 Martes 18/06:
 
 	- Escritas funciones para leer archivo fdf y guardarlo en un mapa.
+
+Miercoles 19/06:
+
+	- Probadas las funciones para leer archivo fdf.
