@@ -6,7 +6,7 @@
 /*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:29:48 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/20 19:34:17 by iubieta-         ###   ########.fr       */
+/*   Updated: 2024/06/20 20:07:44 by iubieta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,16 @@ void	draw_line(t_gui *gui, t_point p0, t_point p1)
 	draw_point(gui, p0, 0xFFFFFF);
 }
 
-void draw_map(t_gui *gui, t_map *map, t_cam *camera)
+void	draw_map(t_gui *gui, t_map *map, t_cam *camera)
 {
-    for (int y = 0; y < map->height; y++)
+    int	x;
+	int y;
+	
+	y = 0;
+	while (y < map->height)
     {
-        for (int x = 0; x < map->width; x++)
+		x = 0;
+		while (x < map->width)
         {
             t_point start = project_point(map->array[y][x], camera);
             if (x < map->width - 1)
@@ -87,7 +92,9 @@ void draw_map(t_gui *gui, t_map *map, t_cam *camera)
                 t_point end = project_point(map->array[y + 1][x], camera);
                 draw_line(gui, start, end);
             }
+			x++;
         }
+		y++;
     }
     mlx_put_image_to_window(gui->mlx, gui->window, gui->img.ptr, 0, 0);
 }

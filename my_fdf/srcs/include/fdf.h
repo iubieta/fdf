@@ -62,6 +62,7 @@ void    gui_loop(t_gui *gui);
 int     close_window(void *param);
 
 t_point *new_point(int x, int y, int z);
+int     out_of_screen(t_gui gui, t_point point);
 t_map   *new_map(int width, int height);
 
 t_map	*fdf_load_map(char *file);

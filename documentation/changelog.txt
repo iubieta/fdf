@@ -22,3 +22,7 @@ Martes 18/06:
 Miercoles 19/06:
 
 	- Probadas las funciones para leer archivo fdf.
+
+Jueves	20/06:
+
+	- Funciones de camara y dibujar mapa escritas y probadas.

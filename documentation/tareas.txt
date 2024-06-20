@@ -69,8 +69,5 @@ Planificacion:
 Seguir con:
 
     - Escribir funciones free para mapa y puntos.
-    - Escribir impresion del mapa en pantalla
-        - Crear estructura de camara.
-        - Funcion para proyectar un punto en 2D.
-        - Funcion para proyectar todo el mapa.
+    - Revisar funcion para dibujar mapa y lineas -> comprobar limites de pantalla.
 

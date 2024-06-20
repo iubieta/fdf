@@ -2,7 +2,7 @@
 
 int main()
 {
-	t_map	*map = fdf_load_map("basictest.fdf");
+	t_map	*map = fdf_load_map("42.fdf");
 	print_z_values(map);
 
 	t_gui *gui = malloc(sizeof(t_gui));
