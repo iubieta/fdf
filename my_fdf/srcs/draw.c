@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
+/*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:29:48 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/16 20:56:40 by iubieta          ###   ########.fr       */
+/*   Updated: 2024/06/20 19:34:17 by iubieta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@ typedef	struct 	s_line {
 	int	move_y;
 	int error;
 }				t_line;
-
-void	init_line(t_line *line, t_point p0, t_point p1);
-int	ft_abs(int x);
-int	ft_sign(int x);
 
 void	draw_point(t_gui *gui, t_point p, int color)
 {
@@ -37,12 +33,13 @@ void	draw_point(t_gui *gui, t_point p, int color)
 	}
 }
 
-void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
+void	init_line(t_line *line, t_point p0, t_point p1)
 {
-	char	*dst;
-
-	dst = data->addr + (y * data->line_len + x * (data->bpp / 8));
-	*(unsigned int*)dst = color;
+	line->dif_x = ft_abs(p1.x - p0.x);
+	line->dif_y = ft_abs(p1.y - p0.y);
+	line->move_x = ft_sign(p1.x - p0.x);
+	line->move_y = ft_sign(p1.y - p0.y);
+	line->error = line->dif_x - line->dif_y;
 }
 
 void	draw_line(t_gui *gui, t_point p0, t_point p1)
@@ -73,28 +70,24 @@ void	draw_line(t_gui *gui, t_point p0, t_point p1)
 	draw_point(gui, p0, 0xFFFFFF);
 }
 
-void	init_line(t_line *line, t_point p0, t_point p1)
+void draw_map(t_gui *gui, t_map *map, t_cam *camera)
 {
-	line->dif_x = ft_abs(p1.x - p0.x);
-	line->dif_y = ft_abs(p1.y - p0.y);
-	line->move_x = ft_sign(p1.x - p0.x);
-	line->move_y = ft_sign(p1.y - p0.y);
-	line->error = line->dif_x - line->dif_y;
-}
-int	ft_abs(int x)
-{
-	if (x == 0)
-		return (0);
-	if (x < 0)
-		return (-x);
-	return (x);
-}
-
-int	ft_sign(int x)
-{
-	if (x == 0)
-		return (0);
-	if (x < 0)
-		return (-1);
-	return (1);
+    for (int y = 0; y < map->height; y++)
+    {
+        for (int x = 0; x < map->width; x++)
+        {
+            t_point start = project_point(map->array[y][x], camera);
+            if (x < map->width - 1)
+            {
+                t_point end = project_point(map->array[y][x + 1], camera);
+                draw_line(gui, start, end);
+            }
+            if (y < map->height - 1)
+            {
+                t_point end = project_point(map->array[y + 1][x], camera);
+                draw_line(gui, start, end);
+            }
+        }
+    }
+    mlx_put_image_to_window(gui->mlx, gui->window, gui->img.ptr, 0, 0);
 }

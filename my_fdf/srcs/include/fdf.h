@@ -31,39 +31,53 @@ typedef struct  s_img {
 	int     endian;         // Orden de los bytes (endianess)
 }               t_img;
 
+typedef struct  s_cam {
+    double zoom;
+    double x_angle;
+    double y_angle;
+    double z_angle;
+    double z_height;
+    int x_offset;
+    int y_offset;
+    int iso;
+}               t_cam;
+
+
 typedef struct  s_gui {
     void        *mlx;
     int			width;
 	int			height;
     void        *window;
     t_img       img;
+    t_cam       *camera;
 }               t_gui;
+
+char	*next_word(char* str);
+int	    ft_abs(int x);
+int	    ft_sign(int x);
+double	ft_rad(float degrees);
 
 void    gui_init(t_gui *gui, int width, int height);
 void    gui_loop(t_gui *gui);
 int     close_window(void *param);
 
-void	draw_point(t_gui *gui, t_point p, int color);
-void	draw_line(t_gui *gui, t_point p0, t_point p1);
-
 t_point *new_point(int x, int y, int z);
 t_map   *new_map(int width, int height);
+
+t_map	*fdf_load_map(char *file);
 
 void    add_point(t_map *map, t_point *new_point);
 void    free_points(t_point *head);
 void    print_2d_matrix(t_map *map);
 
-t_point rot_x(t_point p, float angle);
-t_point rot_y(t_point p, float angle);
-t_point rot_z(t_point p, float angle);
-void   map_rotation(t_map *map, t_point (*func)(t_point, float), float angle);
-void    map_translation(t_map *map, char axis, float distance);
-t_point isometric_rot(t_point);
-t_point point_projection(t_point point_3d, float fov, float distance);
+t_cam	*cam_init(t_map map, t_gui gui);
+void	cam_iso(t_cam *camera);
+void	cam_home(t_cam *camera, t_map map, t_gui gui);
+t_point project_point(t_point point, t_cam *camera);
 
-t_map	*fdf_load_map(char *file);
-
-char	*next_word(char* str);
+void	draw_point(t_gui *gui, t_point p, int color);
+void	draw_line(t_gui *gui, t_point p0, t_point p1);
+void    draw_map(t_gui *gui, t_map *map, t_cam *camera);
 
 //DEBUG
 void print_z_values(t_map *map);
