@@ -69,5 +69,6 @@ Planificacion:
 Seguir con:
 
     - Escribir funciones free para mapa y puntos.
-    - Revisar funcion para dibujar mapa y lineas -> comprobar limites de pantalla.
+    - Gestion de ejecucion y argumentos
+    - Gestion eventos de teclas
 

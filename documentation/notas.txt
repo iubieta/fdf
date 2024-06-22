@@ -85,7 +85,6 @@ Bibliografia:
 
 3 - Imprimir pixels y lineas
 
-
 	Algoritmos para dibujar lineas:
 
 		### Algoritmo de Bresenham: Método eficiente para dibujar líneas, utiliza solo operaciones enteras.

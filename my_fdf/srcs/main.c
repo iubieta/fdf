@@ -7,8 +7,9 @@ int main()
 
 	t_gui *gui = malloc(sizeof(t_gui));
 	gui_init(gui, 1920, 1080);
-	
+		
 	t_cam *cam = cam_init(*map, *gui);
-	draw_map(gui,map,cam);
+	draw_map(gui, *map, *cam);
 	gui_loop(gui);
+	
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:29:48 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/20 20:07:44 by iubieta-         ###   ########.fr       */
+/*   Updated: 2024/06/22 19:54:37 by iubieta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void	draw_line(t_gui *gui, t_point p0, t_point p1)
 	init_line(&line, p0, p1);;
 	while (p0.x != p1.x || p0.y != p1.y)
 	{
-		printf("(%i,%i)\n", p0.x, p0.y);
-		printf("Next: dx=%i dy=%i mx=%i my=%i error=%i\n",
-				line.dif_x, line.dif_y, line.move_x, line.move_y, line.error);
+		//printf("(%i,%i)\n", p0.x, p0.y);
+		//printf("Next: dx=%i dy=%i mx=%i my=%i error=%i\n",
+		//		line.dif_x, line.dif_y, line.move_x, line.move_y, line.error);
 		draw_point(gui, p0, 0xFFFFFF);
 		error_double = line.error * 2;
 		if (error_double > -line.dif_y)
@@ -66,30 +66,30 @@ void	draw_line(t_gui *gui, t_point p0, t_point p1)
 			p0.y += line.move_y;
 		}
 	}
-	printf("(%i,%i)\n", p0.x, p0.y);
+	//printf("(%i,%i)\n", p0.x, p0.y);
 	draw_point(gui, p0, 0xFFFFFF);
 }
 
-void	draw_map(t_gui *gui, t_map *map, t_cam *camera)
+void	draw_map(t_gui *gui, t_map map, t_cam camera)
 {
     int	x;
 	int y;
 	
 	y = 0;
-	while (y < map->height)
+	while (y < map.height)
     {
 		x = 0;
-		while (x < map->width)
+		while (x < map.width)
         {
-            t_point start = project_point(map->array[y][x], camera);
-            if (x < map->width - 1)
+            t_point start = project_point(map.array[y][x], camera);
+            if (x < map.width - 1)
             {
-                t_point end = project_point(map->array[y][x + 1], camera);
+                t_point end = project_point(map.array[y][x + 1], camera);
                 draw_line(gui, start, end);
             }
-            if (y < map->height - 1)
+            if (y < map.height - 1)
             {
-                t_point end = project_point(map->array[y + 1][x], camera);
+                t_point end = project_point(map.array[y + 1][x], camera);
                 draw_line(gui, start, end);
             }
 			x++;

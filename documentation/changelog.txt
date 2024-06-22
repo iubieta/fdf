@@ -23,6 +23,11 @@ Miercoles 19/06:
 
 	- Probadas las funciones para leer archivo fdf.
 
-Jueves	20/06:
+Jueves 20/06:
 
 	- Funciones de camara y dibujar mapa escritas y probadas.
+
+Sabado 21/06:
+
+	- Rotacion de camara y zoom escrito.
+	- Cambiados argumentos de funciones de proyeccion de punteroa a variables.

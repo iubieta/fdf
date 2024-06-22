@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   3D_points.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 12:05:30 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/20 20:05:14 by iubieta-         ###   ########.fr       */
+/*   Updated: 2024/06/22 19:03:01 by iubieta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ t_point *new_point(int x, int y, int z)
 	return (point);
 }
 
-int	out_of_screen(t_gui gui, t_point point)
+/* int	out_of_screen(t_gui gui, t_point point)
 {
 	if (point.x < 0 || point.x > gui.width)
 		return (1);
 	if (point.y < 0 || point.x > gui.height)
 		return (1);
 	return (0);
-}
+} */
 
 t_map *new_map(int width, int height)
 {
