@@ -34,13 +34,13 @@ Planificacion:
     - Implementar una función para dibujar líneas (algoritmo de Bresenham). (HECHO)
 
     8. **Dibujo del Mapa Completo**
-    - Dibujar todas las líneas entre puntos adyacentes.
-    - Mostrar el mapa en la ventana.
+    - Dibujar todas las líneas entre puntos adyacentes. (HECHO)
+    - Mostrar el mapa en la ventana. (HECHO)
 
     ### **Interactividad**
     9. **Eventos de Teclado y Ratón**
-    - Implementar controles para rotar y hacer zoom.
-    - Añadir funciones para manejar eventos de teclado y ratón.
+    - Implementar controles para rotar y hacer zoom.(HECHO)
+    - Añadir funciones para manejar eventos de teclado y ratón. (HECHO)
 
     10. **Redibujar en Respuesta a Eventos**
         - Actualizar la visualización según las interacciones del usuario.
@@ -70,5 +70,5 @@ Seguir con:
 
     - Escribir funciones free para mapa y puntos.
     - Gestion de ejecucion y argumentos
-    - Gestion eventos de teclas
+	- Centrar imagen a dibujar el mapa
 

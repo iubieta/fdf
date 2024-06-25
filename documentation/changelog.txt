@@ -30,4 +30,9 @@ Jueves 20/06:
 Sabado 21/06:
 
 	- Rotacion de camara y zoom escrito.
-	- Cambiados argumentos de funciones de proyeccion de punteroa a variables.
+	- Cambiados argumentos de funciones de proyeccion, de punteros a variables.
+
+Martes 25/06:
+
+	- Añadido t_map	*map a t_gui.
+	- Rotacion del mapa con teclas hecho.

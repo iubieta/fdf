@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   camera.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
+/*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 19:00:07 by iubieta-          #+#    #+#             */
-/*   Updated: 2024/06/22 20:21:12 by iubieta          ###   ########.fr       */
+/*   Updated: 2024/06/25 20:10:36 by iubieta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ t_cam	*cam_init(t_map map, t_gui gui)
 	camera->zoom = gui.height / map.height / 2.5;
 	if (gui.width < gui.height) 
 		camera->zoom = gui.width / map.width / 2.5;
-	camera->x_angle = ft_rad(-30);
+	camera->x_angle = ft_rad(-20);
 	camera->y_angle = ft_rad(0);
-	camera->z_angle = ft_rad(-40);
+	camera->z_angle = ft_rad(-20);
 	camera->z_height = 10.0f;
 	camera->x_offset = gui.width / 3;
 	camera->y_offset = gui.height / 6;
@@ -61,7 +61,9 @@ t_point project_point(t_point point, t_cam camera)
 {
 	point = cam_zoom(point, camera);
 	point = cam_angle(point, camera);
-	point.x = (int)((point.x - point.y) * cos(ft_rad(60)) + camera.x_offset);
-	point.y = (int)((point.x + point.y) * sin(ft_rad(30)) - point.z + camera.y_offset);
+	point.x = (int)((point.x - point.y) * cos(ft_rad(60)));
+	point.y = (int)((point.x + point.y) * sin(ft_rad(30)) - point.z);
+	point.x += camera.x_offset;
+	point.y += camera.y_offset;
 	return (point);
 }

@@ -9,6 +9,8 @@ int main()
 	gui_init(gui, 1920, 1080);
 		
 	t_cam *cam = cam_init(*map, *gui);
+	gui->camera = cam;
+	gui->map = map;
 	draw_map(gui, *map, *cam);
 	gui_loop(gui);
 	

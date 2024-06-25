@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gui.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
+/*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 09:58:39 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/16 19:16:34 by iubieta          ###   ########.fr       */
+/*   Updated: 2024/06/25 19:58:22 by iubieta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,8 @@ void gui_init(t_gui *gui, int width, int height)
 void gui_loop(t_gui *gui)
 {
 	mlx_hook(gui->window, 17, 0, close_window, NULL);
+	//mlx_key_hook(gui->window, handle_key, gui);
+	mlx_hook(gui->window, 2, 1L<<0, handle_key, gui);
     mlx_loop(gui->mlx);
 }
 
-int close_window(void *param)
-{
-	(void)param;
-	exit(0);
-	return (0);
-}

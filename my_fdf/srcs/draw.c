@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
+/*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:29:48 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/22 19:54:37 by iubieta          ###   ########.fr       */
+/*   Updated: 2024/06/25 19:51:06 by iubieta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,29 @@ void	draw_map(t_gui *gui, t_map map, t_cam camera)
 		y++;
     }
     mlx_put_image_to_window(gui->mlx, gui->window, gui->img.ptr, 0, 0);
+}
+
+void clear_image(t_img *image, int width, int height)
+{
+    int x;
+	int y;
+    int color;
+	int i;
+	
+	
+	color = 0x000000; // Negro (puedes cambiarlo a cualquier color)
+	y = 0;
+	while (y < height)
+	{
+		x = 0;
+		while (x < width)
+		{
+			i = (y * image->line_len) + (x * (image->bpp / 8));
+			image->addr[i] = color & 0xFF;
+			image->addr[++i] = (color >> 8) & 0xFF;
+			image->addr[++i] = (color >> 16) & 0xFF;
+			x++;
+		}
+		y++;
+    }
 }

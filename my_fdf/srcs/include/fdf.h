@@ -55,6 +55,7 @@ typedef struct  s_gui {
 	void        *window;
 	t_img       img;
 	t_cam       *camera;
+	t_map		*map;
 }               t_gui;
 
 char	*next_word(char* str);
@@ -64,7 +65,10 @@ double	ft_rad(float degrees);
 
 void    gui_init(t_gui *gui, int width, int height);
 void    gui_loop(t_gui *gui);
+
 int     close_window(void *param);
+int		handle_key(int keycode, void *param);
+
 
 t_point *new_point(int x, int y, int z);
 //int     out_of_screen(t_gui gui, t_point point);
@@ -84,6 +88,8 @@ t_point project_point(t_point point, t_cam camera);
 void	draw_point(t_gui *gui, t_point p, int color);
 void	draw_line(t_gui *gui, t_point p0, t_point p1);
 void    draw_map(t_gui *gui, t_map map, t_cam camera);
+void	clear_image(t_img *image, int width, int height);
+
 
 //DEBUG
 void print_z_values(t_map *map);
