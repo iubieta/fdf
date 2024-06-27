@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   camera.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 19:00:07 by iubieta-          #+#    #+#             */
-/*   Updated: 2024/06/25 20:10:36 by iubieta-         ###   ########.fr       */
+/*   Updated: 2024/06/27 20:37:23 by iubieta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ t_cam	*cam_init(t_map map, t_gui gui)
 	camera->zoom = gui.height / map.height / 2.5;
 	if (gui.width < gui.height) 
 		camera->zoom = gui.width / map.width / 2.5;
-	camera->x_angle = ft_rad(-20);
+	camera->x_angle = ft_rad(0);
 	camera->y_angle = ft_rad(0);
-	camera->z_angle = ft_rad(-20);
+	camera->z_angle = ft_rad(0);
 	camera->z_height = 10.0f;
 	camera->x_offset = gui.width / 3;
 	camera->y_offset = gui.height / 6;

@@ -2,8 +2,8 @@
 
 int main()
 {
-	t_map	*map = fdf_load_map("42.fdf");
-	print_z_values(map);
+	t_map	*map = fdf_load_map("julia.fdf");
+	//print_z_values(map);
 
 	t_gui *gui = malloc(sizeof(t_gui));
 	gui_init(gui, 1920, 1080);

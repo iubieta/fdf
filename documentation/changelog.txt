@@ -36,3 +36,8 @@ Martes 25/06:
 
 	- Añadido t_map	*map a t_gui.
 	- Rotacion del mapa con teclas hecho.
+
+Jueves 27/06:
+
+	- Reajustados valores iniciales de camara
+	- quitados algunos printf
