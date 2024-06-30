@@ -6,19 +6,19 @@
 /*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 12:05:30 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/22 19:03:01 by iubieta          ###   ########.fr       */
+/*   Updated: 2024/06/30 17:09:54 by iubieta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/fdf.h"
 
-void	init_map_array(t_map *map, int width, int height);
-
-t_point *new_point(int x, int y, int z)
+t_point	*new_point(int x, int y, int z)
 {
-	t_point *point;
-	point = (t_point *)malloc(sizeof (t_point));
-	if (!point) {
+	t_point	*point;
+
+	point = (t_point *) malloc(sizeof(t_point));
+	if (!point)
+	{
 		perror("Error: malloc for point failed");
 		exit(EXIT_FAILURE);
 	}
@@ -38,51 +38,57 @@ t_point *new_point(int x, int y, int z)
 	return (0);
 } */
 
-t_map *new_map(int width, int height)
+t_point	**init_array(int width, int height)
 {
-    t_map	*map;
+	t_point	**array;
+	int		i;
 
-    map = (t_map *)malloc(sizeof(t_map));
-    if (!map)
-    {
-        perror("Error: malloc for map failed");
-        
-    }
+	array = (t_point **)malloc(sizeof(t_point *) * height);
+	if (!array)
+	{
+		perror("Error: malloc for map array failed");
+		exit(EXIT_FAILURE);
+	}
+	i = 0;
+	while (i < height)
+	{
+		array[i] = (t_point *)malloc(sizeof(t_point) * width);
+		if (!array[i])
+		{
+			perror("Error: malloc for map array row failed");
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
+	return (array);
+}
+
+t_map	*new_map(int width, int height)
+{
+	t_map	*map;
+
+	map = (t_map *) malloc(sizeof(t_map));
+	if (!map)
+	{
+		perror("Error: malloc for map failed");
+	}
 	map->width = width;
 	map->height = height;
-	//init_map_array(map, width, height);
-	int i;
-
-	map->array = (t_point **)malloc(sizeof(t_point *) * height);
-	if (!map->array)
-	{
-        perror("Error: malloc for map array failed");
-        exit(EXIT_FAILURE);
-    }
-	i = 0;
-	while (i < map->height)
-	{
-		map->array[i] = (t_point *)malloc(sizeof(t_point) * width);
-		if (!map->array[i])
-		{
-			perror("Error: malloc for map array row failed");
-			exit(EXIT_FAILURE);
-		}
-		i++;
-	}
-    return (map);
+	map->array = init_array(width, height);
+	return (map);
 }
 
+/* 
 void	init_map_array(t_map *map, int width, int height)
 {
-	int i;
+	int	i;
 
 	map->array = (t_point **)malloc(sizeof(t_point *) * height);
 	if (!map->array)
 	{
-        perror("Error: malloc for map array failed");
-        exit(EXIT_FAILURE);
-    }
+		perror("Error: malloc for map array failed");
+		exit(EXIT_FAILURE);
+	}
 	i = 0;
 	while (i < map->height)
 	{
@@ -94,4 +100,4 @@ void	init_map_array(t_map *map, int width, int height)
 		}
 		i++;
 	}
-}
+} */

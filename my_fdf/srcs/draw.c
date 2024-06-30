@@ -3,22 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:29:48 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/25 19:51:06 by iubieta-         ###   ########.fr       */
+/*   Updated: 2024/06/30 17:23:49 by iubieta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/fdf.h"
-
-typedef	struct 	s_line {
-	int dif_x;
-	int dif_y;
-	int move_x;
-	int	move_y;
-	int error;
-}				t_line;
 
 void	draw_point(t_gui *gui, t_point p, int color)
 {
@@ -28,8 +20,8 @@ void	draw_point(t_gui *gui, t_point p, int color)
 	{
 		i = (p.x * gui->img.bpp / 8) + (p.y * gui->img.line_len);
 		gui->img.addr[i] = color & 0xFF;
-        gui->img.addr[++i] = (color >> 8) & 0xFF;
-        gui->img.addr[++i] = (color >> 16) & 0xFF;
+		gui->img.addr[++i] = (color >> 8) & 0xFF;
+		gui->img.addr[++i] = (color >> 16) & 0xFF;
 	}
 }
 
@@ -45,20 +37,17 @@ void	init_line(t_line *line, t_point p0, t_point p1)
 void	draw_line(t_gui *gui, t_point p0, t_point p1)
 {
 	t_line	line;
-	int 	error_double;
+	int		error_double;
 
-	init_line(&line, p0, p1);;
+	init_line(&line, p0, p1);
 	while (p0.x != p1.x || p0.y != p1.y)
 	{
-		//printf("(%i,%i)\n", p0.x, p0.y);
-		//printf("Next: dx=%i dy=%i mx=%i my=%i error=%i\n",
-		//		line.dif_x, line.dif_y, line.move_x, line.move_y, line.error);
 		draw_point(gui, p0, 0xFFFFFF);
 		error_double = line.error * 2;
 		if (error_double > -line.dif_y)
 		{
 			line.error -= line.dif_y;
-			p0.x += line.move_x;  
+			p0.x += line.move_x;
 		}
 		if (error_double < line.dif_x)
 		{
@@ -66,48 +55,46 @@ void	draw_line(t_gui *gui, t_point p0, t_point p1)
 			p0.y += line.move_y;
 		}
 	}
-	//printf("(%i,%i)\n", p0.x, p0.y);
 	draw_point(gui, p0, 0xFFFFFF);
 }
 
 void	draw_map(t_gui *gui, t_map map, t_cam camera)
 {
-    int	x;
-	int y;
-	
-	y = 0;
-	while (y < map.height)
-    {
-		x = 0;
-		while (x < map.width)
-        {
-            t_point start = project_point(map.array[y][x], camera);
-            if (x < map.width - 1)
-            {
-                t_point end = project_point(map.array[y][x + 1], camera);
-                draw_line(gui, start, end);
-            }
-            if (y < map.height - 1)
-            {
-                t_point end = project_point(map.array[y + 1][x], camera);
-                draw_line(gui, start, end);
-            }
-			x++;
-        }
-		y++;
-    }
-    mlx_put_image_to_window(gui->mlx, gui->window, gui->img.ptr, 0, 0);
+	int		x;
+	int		y;
+	t_point	start;
+	t_point	end;
+
+	y = -1;
+	while (++y < map.height)
+	{
+		x = -1;
+		while (++x < map.width)
+		{
+			start = project_point(map.array[y][x], camera);
+			if (x < map.width - 1)
+			{
+				end = project_point(map.array[y][x + 1], camera);
+				draw_line(gui, start, end);
+			}
+			if (y < map.height - 1)
+			{
+				end = project_point(map.array[y + 1][x], camera);
+				draw_line(gui, start, end);
+			}
+		}
+	}
+	mlx_put_image_to_window(gui->mlx, gui->window, gui->img.ptr, 0, 0);
 }
 
-void clear_image(t_img *image, int width, int height)
+void	clear_image(t_img *image, int width, int height)
 {
-    int x;
-	int y;
-    int color;
-	int i;
-	
-	
-	color = 0x000000; // Negro (puedes cambiarlo a cualquier color)
+	int	x;
+	int	y;
+	int	color;
+	int	i;
+
+	color = 0x000000;
 	y = 0;
 	while (y < height)
 	{
@@ -121,5 +108,5 @@ void clear_image(t_img *image, int width, int height)
 			x++;
 		}
 		y++;
-    }
+	}
 }

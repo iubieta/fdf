@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 21:42:27 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/20 19:28:45 by iubieta-         ###   ########.fr       */
+/*   Updated: 2024/06/30 17:57:20 by iubieta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/fdf.h"
 
-char	*next_word(char* str) 
+char	*next_word(char *str)
 {
 	if (str == NULL)
 	{
