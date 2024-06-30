@@ -68,7 +68,8 @@ Planificacion:
 
 Seguir con:
 
-    - Escribir funciones free para mapa y puntos.
+	- Buscar leak en GNL
     - Gestion de ejecucion y argumentos
 	- Centrar imagen a dibujar el mapa
+	- Quitar debugs
 

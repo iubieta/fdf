@@ -6,7 +6,7 @@
 /*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 19:22:10 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/30 17:55:10 by iubieta          ###   ########.fr       */
+/*   Updated: 2024/06/30 19:19:31 by iubieta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,22 @@
 
 int	close_window(void *param)
 {
-	(void)param;
+	t_gui	*gui;
+
+	gui = (t_gui *)param;
+	free_gui(gui);
 	exit(0);
 	return (0);
 }
 
-void	window_ctrl(int keycode)
+void	window_ctrl(int keycode, t_gui *gui)
 {
 	if (keycode == 65307)
-		exit(0);
+	{
+		free_gui(gui);
+		exit(0);	
+	}
+	
 }
 
 void	camera_angle_ctrl(int keycode, t_gui *gui)
@@ -58,7 +65,7 @@ int	handle_key(int keycode, void *param)
 	t_gui	*gui;
 
 	gui = (t_gui *)param;
-	window_ctrl(keycode);
+	window_ctrl(keycode, gui);
 	camera_angle_ctrl(keycode, gui);
 	camera_pos_ctrl(keycode, gui);
 	if (keycode == 43)

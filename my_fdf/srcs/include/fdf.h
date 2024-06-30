@@ -6,7 +6,7 @@
 /*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 17:58:20 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/30 18:16:21 by iubieta          ###   ########.fr       */
+/*   Updated: 2024/06/30 19:15:18 by iubieta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,3 +108,5 @@ void	draw_point(t_gui *gui, t_point p, int color);
 void	draw_line(t_gui *gui, t_point p0, t_point p1);
 void	draw_map(t_gui *gui, t_map map, t_cam camera);
 void	clear_image(t_img *image, int width, int height);
+
+void	free_gui(t_gui *gui);

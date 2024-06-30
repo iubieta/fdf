@@ -13,5 +13,5 @@ int main()
 	gui->map = map;
 	draw_map(gui, *map, *cam);
 	gui_loop(gui);
-	
+	free_gui(gui);
 }

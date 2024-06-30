@@ -6,7 +6,7 @@
 /*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:30:09 by iubieta-          #+#    #+#             */
-/*   Updated: 2024/06/10 12:51:23 by iubieta          ###   ########.fr       */
+/*   Updated: 2024/06/30 20:09:28 by iubieta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,12 @@ char	*get_next_line(int fd)
 		return (free(text), text = NULL, NULL);
 	line_len = ft_linelen(text);
 	line = ft_substr(text, 0, line_len);
+	if (!line)
+		return (free(line), line = NULL, NULL);
 	del = text;
 	text = ft_substr(text, line_len, ft_strlen(text) - line_len);
+	if (!text)
+		return (free(text), text = NULL, NULL);
 	free(del);
 	del = NULL;
 	return (line);

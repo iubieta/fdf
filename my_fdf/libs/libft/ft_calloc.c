@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 20:01:29 by iubieta-          #+#    #+#             */
-/*   Updated: 2023/09/22 16:54:47 by iubieta-         ###   ########.fr       */
+/*   Updated: 2024/06/30 20:12:13 by iubieta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_calloc(size_t num, size_t size)
 
 	ptr = malloc(num * size);
 	if (!ptr)
-		return (0);
+		return (NULL);
 	i = 0;
 	while (i < num * size)
 	{
