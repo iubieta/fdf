@@ -41,3 +41,7 @@ Jueves 27/06:
 
 	- Reajustados valores iniciales de camara
 	- quitados algunos printf
+
+Domingo 30/06:
+
+	- Norminette corregida
