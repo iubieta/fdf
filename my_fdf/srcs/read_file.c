@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
+/*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:33:19 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/30 20:04:22 by iubieta          ###   ########.fr       */
+/*   Updated: 2024/07/01 18:47:01 by iubieta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	fdf_width(char *file)
 {
 	int		fd;
 	char	*line;
+	char	*del;
 	int		width;
 
 	fd = open(file, O_RDONLY);
@@ -42,12 +43,16 @@ int	fdf_width(char *file)
 		return (1);
 	}
 	line = get_next_line(fd);
+	del = line;
 	width = 0;
 	while (line)
 	{
+
 		line = next_word(line);
 		width++;
 	}
+	free(del);
+	del = NULL;
 	return (width);
 }
 
@@ -67,6 +72,7 @@ int	fdf_height(char	*file)
 	line = get_next_line(fd);
 	while (line)
 	{
+		free(line);
 		line = get_next_line(fd);
 		height++;
 	}
@@ -79,6 +85,7 @@ void	fdf_save_array(char *file, t_map *map)
 	int		x;
 	int		y;
 	char	*str_point;
+	char 	*del;
 
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
@@ -91,6 +98,7 @@ void	fdf_save_array(char *file, t_map *map)
 	{
 		x = -1;
 		str_point = get_next_line(fd);
+		del = str_point;
 		while (++x < map->width)
 		{
 			map->array[y][x].x = x;
@@ -99,5 +107,9 @@ void	fdf_save_array(char *file, t_map *map)
 			map->array[y][x].color = 0x00FFFFFF;
 			str_point = next_word(str_point);
 		}
+		free(del);
+		del = NULL;
 	}
+	free(del);
+	del = NULL;
 }

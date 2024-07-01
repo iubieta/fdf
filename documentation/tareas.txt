@@ -72,4 +72,5 @@ Seguir con:
     - Gestion de ejecucion y argumentos
 	- Centrar imagen a dibujar el mapa
 	- Quitar debugs
+	- Revisar norminette
 

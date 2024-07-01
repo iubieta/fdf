@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
+/*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:30:09 by iubieta-          #+#    #+#             */
-/*   Updated: 2024/06/30 20:09:28 by iubieta          ###   ########.fr       */
+/*   Updated: 2024/07/01 17:44:37 by iubieta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,9 +118,9 @@ char	*get_next_line(int fd)
 		return (free(line), line = NULL, NULL);
 	del = text;
 	text = ft_substr(text, line_len, ft_strlen(text) - line_len);
-	if (!text)
-		return (free(text), text = NULL, NULL);
 	free(del);
 	del = NULL;
+	if (!text)
+		return (free(text), text = NULL, NULL);
 	return (line);
 }
