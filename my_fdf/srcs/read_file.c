@@ -6,7 +6,7 @@
 /*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:33:19 by iubieta           #+#    #+#             */
-/*   Updated: 2024/07/02 19:26:25 by iubieta-         ###   ########.fr       */
+/*   Updated: 2024/07/02 19:55:24 by iubieta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,5 @@ void	fdf_save_array(int fd, t_map *map)
 		free(del);
 		del = NULL;
 	}
-	free(del);
-	del = NULL;
+	get_next_line(fd);
 }
