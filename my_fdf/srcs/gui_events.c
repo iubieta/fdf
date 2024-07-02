@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gui_events.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
+/*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 19:22:10 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/30 19:19:31 by iubieta          ###   ########.fr       */
+/*   Updated: 2024/07/02 20:13:59 by iubieta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,8 @@ void	window_ctrl(int keycode, t_gui *gui)
 	if (keycode == 65307)
 	{
 		free_gui(gui);
-		exit(0);	
+		exit(0);
 	}
-	
 }
 
 void	camera_angle_ctrl(int keycode, t_gui *gui)

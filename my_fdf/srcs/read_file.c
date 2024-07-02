@@ -6,7 +6,7 @@
 /*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:33:19 by iubieta           #+#    #+#             */
-/*   Updated: 2024/07/02 19:55:24 by iubieta-         ###   ########.fr       */
+/*   Updated: 2024/07/02 20:13:15 by iubieta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int	fdf_width(char *file)
 	width = 0;
 	while (line)
 	{
-
 		line = next_word(line);
 		width++;
 	}
@@ -91,7 +90,7 @@ void	fdf_save_array(int fd, t_map *map)
 	int		x;
 	int		y;
 	char	*str_point;
-	char 	*del;
+	char	*del;
 
 	y = -1;
 	while (++y < map->height)
