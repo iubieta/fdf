@@ -6,7 +6,7 @@
 /*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:30:09 by iubieta-          #+#    #+#             */
-/*   Updated: 2024/07/01 18:57:07 by iubieta-         ###   ########.fr       */
+/*   Updated: 2024/07/02 19:18:23 by iubieta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*ft_read(int fd, char *text)
 		if (read_bytes >= 0)
 			text = ft_join_gnl(text, buffer);
 		else
-			return (free (buffer), buffer = NULL, NULL);
+			return (free (buffer), free(text), buffer = NULL, text = NULL, NULL);
 	}
 	free (buffer);
 	buffer = NULL;
@@ -109,20 +109,22 @@ char	*get_next_line(int fd)
     if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	text = ft_errorscheck(fd, text);
-	if (!text)
+	if (text == 0)
 		return (NULL);
 	text = ft_read(fd, text);
-	if (!text || text[0] == '\0')
+	if (!text)
+		return (NULL);
+	if (text[0] == '\0')
 		return (free(text), text = NULL, NULL);
 	line_len = ft_linelen(text);
 	line = ft_substr(text, 0, line_len);
 	if (!line)
-		return (free(line), line = NULL, NULL);
+		return (free(text), text = NULL, NULL);
 	del = text;
 	text = ft_substr(text, line_len, ft_strlen(text) - line_len);
 	free(del);
 	del = NULL;
 	if (!text)
-		return (free(text), text = NULL, NULL);
+		return (free(line), line = NULL, NULL);
 	return (line);
 }
