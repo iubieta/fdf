@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
+/*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 18:21:14 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/30 20:25:30 by iubieta          ###   ########.fr       */
+/*   Updated: 2024/07/02 20:00:24 by iubieta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,17 @@ void	free_mlx_group(t_gui *gui)
 	if (gui->img.ptr)
 	{
 		free_img(gui->mlx, gui->img);
-		printf("Img freed\n");
 	}
 	if (gui->window)
 	{
 		mlx_destroy_window(gui->mlx, gui->window);
 		gui->window = NULL;
-		printf("Window freed\n");
 	}
 	if (gui->mlx)
 	{
 		mlx_destroy_display(gui->mlx);
 		free(gui->mlx);
 		gui->mlx = NULL;
-		printf("MLX freed\n");
 	}
 }
 
@@ -75,16 +72,13 @@ void	free_gui(t_gui *gui)
 	if (gui->map)
 	{
 		free_map(gui->map);
-		printf("Map freed\n");
 	}
 	if (gui->camera)
 	{
 		free (gui->camera);
 		gui->camera = NULL;
-		printf("Camera freed\n");
 	}
 	free_mlx_group(gui);
 	free(gui);
 	gui = NULL;
-	printf("GUI freed\n");
 }

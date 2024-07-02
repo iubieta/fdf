@@ -45,3 +45,10 @@ Jueves 27/06:
 Domingo 30/06:
 
 	- Norminette corregida
+
+Martes 02/07:
+
+	- Corregidos problemas de memoria
+	- Quitados debug de frees
+
+
