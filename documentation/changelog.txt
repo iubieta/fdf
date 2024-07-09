@@ -51,4 +51,10 @@ Martes 02/07:
 	- Corregidos problemas de memoria
 	- Quitados debug de frees
 
+Martes 09/07:
 
+	- Main escrito para evaluacion
+	- Ajuste de algunos parametros
+	- Norminette checkeada
+	- Listo para entregar
+	

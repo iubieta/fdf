@@ -1,17 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/09 19:18:25 by iubieta-          #+#    #+#             */
+/*   Updated: 2024/07/09 19:26:39 by iubieta-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "include/fdf.h"
 
-int main()
+int	main(int argc, char **argv)
 {
-	t_map	*map = fdf_load_map("julia.fdf");
-	//print_z_values(map);
+	t_gui	*gui;
 
-	t_gui *gui = malloc(sizeof(t_gui));
-	gui_init(gui, 1920, 1080);
-		
-	t_cam *cam = cam_init(*map, *gui);
-	gui->camera = cam;
-	gui->map = map;
-	draw_map(gui, *map, *cam);
+	if (argc != 2)
+	{
+		perror("ERROR: Check your arguments");
+		return (0);
+	}
+	gui = malloc(sizeof(t_gui));
+	gui_init(gui, 1080, 720);
+	gui->map = fdf_load_map(argv[1]);
+	gui->camera = cam_init(*gui->map, *gui);
+	draw_map(gui, *gui->map, *gui->camera);
 	gui_loop(gui);
 	free_gui(gui);
 }

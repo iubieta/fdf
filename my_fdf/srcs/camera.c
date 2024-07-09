@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   camera.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
+/*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 19:00:07 by iubieta-          #+#    #+#             */
-/*   Updated: 2024/06/30 17:13:34 by iubieta          ###   ########.fr       */
+/*   Updated: 2024/07/09 19:22:36 by iubieta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ t_cam	*cam_init(t_map map, t_gui gui)
 		fprintf(stderr, "Error: malloc for camera failed\n");
 		exit(EXIT_FAILURE);
 	}
-	camera->zoom = gui.height / map.height / 2.5;
+	camera->zoom = gui.height / map.height;
 	if (gui.width < gui.height)
-		camera->zoom = gui.width / map.width / 2.5;
+		camera->zoom = gui.width / map.width;
 	camera->x_angle = ft_rad(0);
 	camera->y_angle = ft_rad(0);
 	camera->z_angle = ft_rad(0);

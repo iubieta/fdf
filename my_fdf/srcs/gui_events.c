@@ -6,7 +6,7 @@
 /*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 19:22:10 by iubieta           #+#    #+#             */
-/*   Updated: 2024/07/02 20:13:59 by iubieta-         ###   ########.fr       */
+/*   Updated: 2024/07/09 19:25:08 by iubieta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ void	camera_angle_ctrl(int keycode, t_gui *gui)
 void	camera_pos_ctrl(int keycode, t_gui *gui)
 {
 	if (keycode == 65363)
-		gui->camera->x_offset -= gui->width / 100;
+		gui->camera->x_offset -= gui->width / 25;
 	else if (keycode == 65361)
-		gui->camera->x_offset += gui->width / 100;
+		gui->camera->x_offset += gui->width / 25;
 	else if (keycode == 65364)
-		gui->camera->y_offset -= gui->height / 100;
+		gui->camera->y_offset -= gui->height / 25;
 	else if (keycode == 65362)
-		gui->camera->y_offset += gui->height / 100;
+		gui->camera->y_offset += gui->height / 25;
 }
 
 int	handle_key(int keycode, void *param)
