@@ -6,7 +6,7 @@
 /*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 19:18:25 by iubieta-          #+#    #+#             */
-/*   Updated: 2024/07/09 19:26:39 by iubieta-         ###   ########.fr       */
+/*   Updated: 2024/07/09 19:43:30 by iubieta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		perror("ERROR: Check your arguments");
+		ft_printf("ERROR: Check your arguments");
 		return (0);
 	}
 	gui = malloc(sizeof(t_gui));

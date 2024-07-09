@@ -57,4 +57,4 @@ Martes 09/07:
 	- Ajuste de algunos parametros
 	- Norminette checkeada
 	- Listo para entregar
-	
+	- Cambiados mensajes de error

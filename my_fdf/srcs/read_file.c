@@ -6,7 +6,7 @@
 /*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:33:19 by iubieta           #+#    #+#             */
-/*   Updated: 2024/07/09 19:12:22 by iubieta-         ###   ########.fr       */
+/*   Updated: 2024/07/09 19:46:06 by iubieta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ t_map	*fdf_load_map(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		perror("Error opening the file");
-		return (NULL);
+		perror("ERROR");
+		exit(EXIT_FAILURE);
 	}
 	fdf_save_array(fd, map);
 	return (map);
@@ -46,8 +46,8 @@ int	fdf_width(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		perror("Error opening the file");
-		return (1);
+		perror("ERROR");
+		exit(EXIT_FAILURE);
 	}
 	line = get_next_line(fd);
 	del = line;
@@ -71,8 +71,8 @@ int	fdf_height(char	*file)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		perror("Error opening the file");
-		return (1);
+		perror("ERROR");
+		exit(EXIT_FAILURE);
 	}
 	height = 0;
 	line = get_next_line(fd);

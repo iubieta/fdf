@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   3D_points.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iubieta <iubieta@student.42.fr>            +#+  +:+       +#+        */
+/*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 12:05:30 by iubieta           #+#    #+#             */
-/*   Updated: 2024/06/30 17:09:54 by iubieta          ###   ########.fr       */
+/*   Updated: 2024/07/09 19:45:16 by iubieta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_point	*new_point(int x, int y, int z)
 	point = (t_point *) malloc(sizeof(t_point));
 	if (!point)
 	{
-		perror("Error: malloc for point failed");
+		perror("ERROR");
 		exit(EXIT_FAILURE);
 	}
 	point->x = x;
@@ -46,7 +46,7 @@ t_point	**init_array(int width, int height)
 	array = (t_point **)malloc(sizeof(t_point *) * height);
 	if (!array)
 	{
-		perror("Error: malloc for map array failed");
+		perror("ERROR");
 		exit(EXIT_FAILURE);
 	}
 	i = 0;
@@ -55,7 +55,7 @@ t_point	**init_array(int width, int height)
 		array[i] = (t_point *)malloc(sizeof(t_point) * width);
 		if (!array[i])
 		{
-			perror("Error: malloc for map array row failed");
+		perror("ERROR");
 			exit(EXIT_FAILURE);
 		}
 		i++;
@@ -70,7 +70,7 @@ t_map	*new_map(int width, int height)
 	map = (t_map *) malloc(sizeof(t_map));
 	if (!map)
 	{
-		perror("Error: malloc for map failed");
+		perror("ERROR");
 	}
 	map->width = width;
 	map->height = height;
