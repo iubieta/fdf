@@ -40,7 +40,7 @@ int	fdf_width(char *file)
 {
 	int		fd;
 	char	*line;
-	char	*del;
+	char	*word;
 	int		width;
 
 	fd = open(file, O_RDONLY);
@@ -50,16 +50,19 @@ int	fdf_width(char *file)
 		exit(EXIT_FAILURE);
 	}
 	line = get_next_line(fd);
-	del = line;
-	width = 0;
 	while (line)
 	{
-		line = next_word(line);
-		width++;
+		word = line;
+		width = 0;
+		while (word)
+		{
+			word = next_word(word);
+			width++;
+		}
+		free(line);
+		line = get_next_line(fd);
 	}
-	free(del);
-	del = NULL;
-	return (width);
+	return (free(line), line = NULL, close(fd), width);
 }
 
 int	fdf_height(char	*file)
@@ -82,6 +85,7 @@ int	fdf_height(char	*file)
 		line = get_next_line(fd);
 		height++;
 	}
+	close(fd);
 	return (height);
 }
 

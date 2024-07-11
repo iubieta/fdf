@@ -55,7 +55,7 @@ t_point	**init_array(int width, int height)
 		array[i] = (t_point *)malloc(sizeof(t_point) * width);
 		if (!array[i])
 		{
-		perror("ERROR");
+			perror("ERROR");
 			exit(EXIT_FAILURE);
 		}
 		i++;

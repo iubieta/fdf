@@ -58,3 +58,7 @@ Martes 09/07:
 	- Norminette checkeada
 	- Listo para entregar
 	- Cambiados mensajes de error
+
+Jueves 11/07:
+
+	- Corregido error de width y height

@@ -29,7 +29,7 @@ all: libs $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBS)
-	@echo "PUSH SWAP COMPILED\n"
+	@echo "EVERYTHING COMPILED\n"
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	@mkdir -p $(OBJS_DIR)

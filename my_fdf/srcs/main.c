@@ -22,8 +22,11 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	gui = malloc(sizeof(t_gui));
+	ft_printf("Iniciando GUI\n");
 	gui_init(gui, 1080, 720);
+	ft_printf("Cargando mapa\n");
 	gui->map = fdf_load_map(argv[1]);
+	ft_printf("Iniciando camara\n");
 	gui->camera = cam_init(*gui->map, *gui);
 	draw_map(gui, *gui->map, *gui->camera);
 	gui_loop(gui);
