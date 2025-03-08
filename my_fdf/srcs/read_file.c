@@ -6,7 +6,7 @@
 /*   By: iubieta- <iubieta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:33:19 by iubieta           #+#    #+#             */
-/*   Updated: 2024/07/09 19:46:06 by iubieta-         ###   ########.fr       */
+/*   Updated: 2024/07/15 20:21:45 by iubieta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ t_map	*fdf_load_map(char *file)
 	int		fd;
 
 	width = fdf_width(file);
+	ft_printf("Ancho: %i\n",width);
 	height = fdf_height(file);
+	ft_printf("Alto: %i\n",height);
 	map = new_map(width, height);
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
@@ -45,15 +47,14 @@ int	fdf_width(char *file)
 
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-	{
-		perror("ERROR");
-		exit(EXIT_FAILURE);
-	}
+		return (perror("ERROR"), exit(EXIT_FAILURE), 0);
 	line = get_next_line(fd);
 	while (line)
 	{
 		word = line;
 		width = 0;
+		if (*word == ' ')
+			width--;
 		while (word)
 		{
 			word = next_word(word);
@@ -104,6 +105,7 @@ void	fdf_save_array(int fd, t_map *map)
 		del = str_point;
 		while (++x < map->width)
 		{
+			//ft_printf("(%i,%i)\n",y,x);
 			map->array[y][x].x = x;
 			map->array[y][x].y = y;
 			map->array[y][x].z = ft_atoi(str_point);
